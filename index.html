@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convierte tus ideas - Sebastian</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Casa Nest - Agencia de Marketing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+
     <style>
         /* --- RESET Y ESTILOS GENERALES --- */
         * {
@@ -14,10 +17,16 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            font-family: 'Montserrat', sans-serif;
+            color: #000;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
         }
 
         a {
@@ -29,252 +38,381 @@
             list-style: none;
         }
 
-        /* --- NAVEGACIÓN --- */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+        /* Variables de color basadas en la imagen */
+        :root {
+            --bg-beige: #E3DEC3; /* Color arena/beige de la sección central */
+            --bg-white: #ffffff;
+            --bg-black: #000000;
+            --text-black: #000000;
         }
 
-        nav {
-            max-width: 1100px;
-            margin: auto;
+        /* --- CLASES DE UTILIDAD --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .flex-row {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
         }
 
+        /* --- LOGO SIMULADO (CSS) --- */
+        /* Recreamos el logo con texto para que cargue rápido */
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0073e6;
+            line-height: 0.8;
+            color: #000;
+        }
+        .logo-serif {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+        .logo-sans {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            display: block;
+            margin-left: 10px; /* Ligero ajuste */
+        }
+        .est-date {
+            font-size: 0.6rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 5px;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .nav-links li {
-            display: inline-block;
-            margin-left: 20px;
+        /* --- HEADER / NAV --- */
+        header {
+            padding: 20px 0;
+            background: var(--bg-white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
         }
 
         .nav-links a {
-            font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .nav-links a:hover {
-            color: #0073e6;
-        }
-
-        /* --- HERO SECTION (Portada) --- */
+        /* --- HERO SECTION (Idea + Persona) --- */
         .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #0073e6 0%, #00c6ff 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-            margin-top: 60px; /* Espacio para el header fijo */
+            padding: 40px 0 0 0;
+            background: var(--bg-white);
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            align-items: flex-start; /* Alinear arriba */
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+        .hero-image-col {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        
+        .hero-image-col img {
+            width: 100%;
+            max-width: 450px;
+            /* Recorte estético si la imagen es cuadrada */
+            object-fit: cover; 
         }
 
-        .hero-content p {
+        .hero-text-col {
+            flex: 1;
+            min-width: 300px;
+            padding-top: 40px;
+            padding-left: 20px;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 40px;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif; /* O similar para el estilo typewriter */
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #fff;
-            color: #0073e6;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            background-color: #f0f0f0;
-        }
-
-        /* --- SERVICIOS / CARACTERÍSTICAS --- */
-        .features {
-            max-width: 1100px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .features h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: #333;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* --- ACERCA DE (Sección Beige) --- */
+        .about-section {
+            background-color: var(--bg-beige);
+            padding: 60px 0;
         }
 
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+        .about-headers {
+            margin-bottom: 40px;
+            align-items: flex-start;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .section-label {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            flex: 1;
+            margin-bottom: 20px;
         }
 
-        .card h3 {
-            margin-bottom: 1rem;
-            color: #0073e6;
+        .section-headline {
+            flex: 1;
+            text-align: right;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding-left: 20px;
         }
 
-        /* --- CONTACTO (Funcional) --- */
-        .contact {
-            background: #222;
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+        .about-content {
+            align-items: center;
         }
 
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto;
+        .laptop-col {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .laptop-col img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px; /* Ligero borde como la macbook */
+        }
+
+        .text-col {
+            flex: 1;
+        }
+
+        .about-desc {
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            line-height: 1.6;
+        }
+
+        /* --- CONTACTO --- */
+        .contact-section {
+            background: var(--bg-white);
+            padding: 60px 0;
+        }
+
+        .contact-content {
+            align-items: center;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .contact-list p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .contact-list .spacer {
+            margin-bottom: 20px;
+        }
+
+        .mug-col {
+            flex: 1;
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            justify-content: center;
         }
-
-        .contact-form input, 
-        .contact-form textarea {
-            padding: 15px;
-            border-radius: 5px;
-            border: none;
-            font-family: inherit;
-        }
-
-        .contact-form button {
-            padding: 15px;
-            background: #0073e6;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
-        }
-
-        .contact-form button:hover {
-            background: #005bb5;
+        
+        .mug-col img {
+            max-width: 300px;
         }
 
         /* --- FOOTER --- */
         footer {
-            background: #111;
-            color: #aaa;
+            background-color: var(--bg-black);
+            color: var(--bg-white);
+            padding: 80px 0;
             text-align: center;
-            padding: 1.5rem;
-            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* --- RESPONSIVE MOBILE --- */
+        footer .logo {
+            color: #fff; /* Invertir color para fondo negro */
+            transform: scale(1.5); /* Hacerlo más grande */
+        }
+
+        /* --- RESPONSIVE (MÓVIL) --- */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Menú simplificado para móvil */
+            .nav-links {
+                display: none; /* Menú hamburguesa sería ideal aquí, oculto por simplicidad */
+            }
+            
+            header {
+                text-align: center;
+            }
+
+            .logo {
+                margin: 0 auto;
+                width: fit-content;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .hero-content, 
+            .about-content, 
+            .about-headers, 
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .hero-image-col, 
+            .hero-text-col,
+            .laptop-col,
+            .text-col,
+            .section-label,
+            .section-headline,
+            .contact-info,
+            .mug-col {
+                width: 100%;
+                text-align: left;
+                padding: 0;
+                margin-bottom: 30px;
+            }
+            
+            .section-headline {
+                text-align: left;
+                padding-left: 0;
+            }
+
+            .laptop-col img {
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">Sebastian.</div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header class="flex-row">
+            <div class="logo">
+                <div class="logo-serif">Casa</div>
+                <div class="logo-sans">nest</div>
+                <div class="est-date">
+                    <span>EST.</span>
+                    <span>2026</span>
+                </div>
+            </div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Acerca de Nosotros</a></li>
+                    <li><a href="#">Nuestros Valores</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Agenda una cita con nosotros</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Convierte tus ideas <br> en realidad</h1>
-            <p>Diseño, estrategia y soluciones digitales a tu medida.</p>
-            <a href="#contacto" class="btn">Empezar Proyecto</a>
+    <section class="hero">
+        <div class="container">
+            <div class="flex-row hero-content">
+                <div class="hero-image-col">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Modelo Casa Nest">
+                </div>
+
+                <div class="hero-text-col">
+                    <h1 class="hero-title">Convierte<br>tus ideas</h1>
+                    <p class="hero-subtitle">Agencia de Marketing</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="servicios" class="features">
-        <h2>Lo que puedo hacer por ti</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Diseño Creativo</h3>
-                <p>Transformo conceptos abstractos en diseños visuales impactantes que comunican tu mensaje claramente.</p>
+    <section class="about-section">
+        <div class="container">
+            <div class="flex-row about-headers">
+                <div class="section-label">Acerca De<br>Nosotros</div>
+                <div class="section-headline">Casa Nest la agencia de<br>marketing</div>
             </div>
-            <div class="card">
-                <h3>Desarrollo Web</h3>
-                <p>Sitios web rápidos, responsivos y funcionales utilizando las últimas tecnologías.</p>
-            </div>
-            <div class="card">
-                <h3>Estrategia Digital</h3>
-                <p>Planes de acción para llevar tu marca al siguiente nivel en el entorno digital.</p>
+
+            <div class="flex-row about-content">
+                <div class="laptop-col">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1000&auto=format&fit=crop" alt="Laptop diseño">
+                </div>
+                <div class="text-col">
+                    <p class="about-desc">
+                        Casa Nest es una agencia de marketing fundada en 2026 con el proposito de darle un lugar a las ideas de los clientes y posicionar su narrativa
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="contact">
-        <h2>Hablemos</h2>
-        <p>¿Tienes una idea en mente? Escríbeme y hagámosla realidad.</p>
-        
-        <form class="contact-form" onsubmit="enviarFormulario(event)">
-            <input type="text" placeholder="Tu Nombre" required>
-            <input type="email" placeholder="Tu Correo Electrónico" required>
-            <textarea rows="5" placeholder="Cuéntame sobre tu proyecto" required></textarea>
-            <button type="submit">Enviar Mensaje</button>
-        </form>
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-label" style="margin-bottom: 40px;">Contactanos</div>
+            
+            <div class="flex-row contact-content">
+                <div class="contact-info">
+                    <div class="contact-list">
+                        <p>Crea tu narrativa</p>
+                        <p>Posiciona tu marca</p>
+                        <p class="spacer">Cumple tus objetivos</p>
+                        
+                        <p>Email</p>
+                        <p class="spacer">casanestco@gmail.com</p>
+                        
+                        <p>Telefono 7472543199</p>
+                    </div>
+                </div>
+
+                <div class="mug-col">
+                    <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=1000&auto=format&fit=crop" alt="Taza Casa Nest">
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Sebastian - Convierte tus ideas. Todos los derechos reservados.</p>
+        <div class="logo">
+            <div class="logo-serif">Casa</div>
+            <div class="logo-sans">nest</div>
+            <div class="est-date">
+                <span>EST.</span>
+                <span>2026</span>
+            </div>
+        </div>
     </footer>
-
-    <script>
-        function enviarFormulario(e) {
-            e.preventDefault(); // Evita que la página se recargue
-            // Aquí iría el código para enviar el email real (ej. con Formspree o PHP)
-            alert("¡Gracias por tu mensaje, Sebastian! El formulario funciona correctamente.");
-            e.target.reset(); // Limpia el formulario
-        }
-        
-        // Efecto de scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 
 </body>
 </html>
