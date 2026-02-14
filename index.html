@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Nest - Agencia de Marketing</title>
+    <title>Casa Nest | Agencia de Marketing</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- RESET Y ESTILOS GENERALES --- */
+        :root {
+            --bg-beige: #E3DEC3;
+            --black: #000000;
+            --white: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -18,361 +24,279 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #000;
-            line-height: 1.5;
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.4;
             overflow-x: hidden;
         }
 
-        img {
-            max-width: 100%;
-            display: block;
-            height: auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* Variables de color basadas en la imagen */
-        :root {
-            --bg-beige: #E3DEC3; /* Color arena/beige de la sección central */
-            --bg-white: #ffffff;
-            --bg-black: #000000;
-            --text-black: #000000;
-        }
-
-        /* --- CLASES DE UTILIDAD --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 4%;
         }
 
-        .flex-row {
+        /* --- LOGO ESTILO CANVA --- */
+        .logo-container {
+            display: inline-block;
+            text-align: center;
+            width: 110px;
+        }
+
+        .logo-casa {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 32px;
+            line-height: 0.7;
+            display: block;
+        }
+
+        .logo-nest {
+            font-weight: 900;
+            font-size: 38px;
+            line-height: 0.8;
+            display: block;
+            text-transform: lowercase;
+        }
+
+        .logo-details {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            font-size: 9px;
+            font-weight: 900;
+            margin-top: 4px;
+            border-top: 1.5px solid var(--black);
+            padding-top: 2px;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        header {
+            padding: 25px 0;
+            display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* --- LOGO SIMULADO (CSS) --- */
-        /* Recreamos el logo con texto para que cargue rápido */
-        .logo {
-            line-height: 0.8;
-            color: #000;
-        }
-        .logo-serif {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 2.5rem;
-            font-weight: 400;
-        }
-        .logo-sans {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            display: block;
-            margin-left: 10px; /* Ligero ajuste */
-        }
-        .est-date {
-            font-size: 0.6rem;
-            font-weight: bold;
+        nav ul {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-top: 5px;
-            font-family: 'Montserrat', sans-serif;
+            list-style: none;
+            gap: 20px;
         }
 
-        /* --- HEADER / NAV --- */
-        header {
-            padding: 20px 0;
-            background: var(--bg-white);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-size: 0.75rem;
+        nav ul li a {
+            text-decoration: none;
+            color: var(--black);
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
-        /* --- HERO SECTION (Idea + Persona) --- */
+        /* --- SECCIÓN HERO --- */
         .hero {
-            padding: 40px 0 0 0;
-            background: var(--bg-white);
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            align-items: flex-start; /* Alinear arriba */
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 0;
+            flex-wrap: wrap;
         }
 
-        .hero-image-col {
+        .hero-image {
             flex: 1;
             min-width: 300px;
-            position: relative;
         }
-        
-        .hero-image-col img {
+
+        .hero-image img {
             width: 100%;
-            max-width: 450px;
-            /* Recorte estético si la imagen es cuadrada */
-            object-fit: cover; 
+            display: block;
+            object-fit: cover;
         }
 
-        .hero-text-col {
+        .hero-text {
             flex: 1;
+            padding-left: 40px;
+            padding-bottom: 60px;
             min-width: 300px;
-            padding-top: 40px;
-            padding-left: 20px;
         }
 
-        .hero-title {
-            font-size: 5rem;
+        .hero-text h1 {
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
             font-weight: 900;
-            line-height: 0.9;
-            margin-bottom: 40px;
+            line-height: 0.85;
+            margin-bottom: 30px;
             letter-spacing: -2px;
         }
 
-        .hero-subtitle {
-            font-family: 'Playfair Display', serif; /* O similar para el estilo typewriter */
+        .hero-text p {
             font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #333;
+            font-weight: 400;
         }
 
-        /* --- ACERCA DE (Sección Beige) --- */
+        /* --- SECCIÓN ACERCA DE (BEIGE) --- */
         .about-section {
             background-color: var(--bg-beige);
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
-        .about-headers {
-            margin-bottom: 40px;
-            align-items: flex-start;
+        .about-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .section-label {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .about-header h2 {
+            font-size: 26px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            flex: 1;
-            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.1;
         }
 
-        .section-headline {
-            flex: 1;
+        .about-header .tagline {
+            font-size: 22px;
+            text-transform: uppercase;
+            font-weight: 700;
             text-align: right;
-            font-size: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-grid img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .about-content p {
+            font-size: 20px;
             font-weight: 600;
             text-transform: uppercase;
-            padding-left: 20px;
+            line-height: 1.5;
         }
 
-        .about-content {
-            align-items: center;
-        }
-
-        .laptop-col {
-            flex: 1;
-            padding-right: 40px;
-        }
-
-        .laptop-col img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 5px; /* Ligero borde como la macbook */
-        }
-
-        .text-col {
-            flex: 1;
-        }
-
-        .about-desc {
-            font-size: 1.1rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            line-height: 1.6;
-        }
-
-        /* --- CONTACTO --- */
+        /* --- SECCIÓN CONTACTO --- */
         .contact-section {
-            background: var(--bg-white);
-            padding: 60px 0;
-        }
-
-        .contact-content {
-            align-items: center;
-        }
-
-        .contact-info {
-            flex: 1;
+            padding: 80px 0;
+            background-color: var(--white);
         }
 
         .contact-title {
-            font-size: 1.5rem;
+            font-size: 26px;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .contact-data {
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.8;
         }
 
-        .contact-list p {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-        
-        .contact-list .spacer {
-            margin-bottom: 20px;
+        .contact-data .block {
+            margin-bottom: 25px;
         }
 
-        .mug-col {
-            flex: 1;
+        .contact-image {
             display: flex;
             justify-content: center;
         }
-        
-        .mug-col img {
-            max-width: 300px;
+
+        .contact-image img {
+            width: 280px;
+            height: auto;
         }
 
         /* --- FOOTER --- */
         footer {
-            background-color: var(--bg-black);
-            color: var(--bg-white);
-            padding: 80px 0;
-            text-align: center;
+            background-color: var(--black);
+            padding: 100px 0;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        footer .logo {
-            color: #fff; /* Invertir color para fondo negro */
-            transform: scale(1.5); /* Hacerlo más grande */
+        footer .logo-container {
+            color: var(--white);
+            transform: scale(1.8);
         }
 
-        /* --- RESPONSIVE (MÓVIL) --- */
+        footer .logo-details {
+            border-top: 1.5px solid var(--white);
+        }
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Menú hamburguesa sería ideal aquí, oculto por simplicidad */
-            }
-            
-            header {
-                text-align: center;
-            }
-
-            .logo {
-                margin: 0 auto;
-                width: fit-content;
-            }
-
-            .hero-title {
-                font-size: 3.5rem;
-            }
-
-            .hero-content, 
-            .about-content, 
-            .about-headers, 
-            .contact-content {
-                flex-direction: column;
-            }
-
-            .hero-image-col, 
-            .hero-text-col,
-            .laptop-col,
-            .text-col,
-            .section-label,
-            .section-headline,
-            .contact-info,
-            .mug-col {
-                width: 100%;
-                text-align: left;
-                padding: 0;
-                margin-bottom: 30px;
-            }
-            
-            .section-headline {
-                text-align: left;
-                padding-left: 0;
-            }
-
-            .laptop-col img {
-                margin: 0 auto;
-            }
+            nav { display: none; }
+            .hero-text { padding-left: 0; padding-top: 30px; text-align: center; }
+            .about-header { flex-direction: column; }
+            .about-header .tagline { text-align: left; }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .contact-image img { width: 200px; }
+            .hero-text h1 { font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header class="flex-row">
-            <div class="logo">
-                <div class="logo-serif">Casa</div>
-                <div class="logo-sans">nest</div>
-                <div class="est-date">
+        <header>
+            <div class="logo-container">
+                <span class="logo-casa">Casa</span>
+                <span class="logo-nest">nest</span>
+                <div class="logo-details">
                     <span>EST.</span>
                     <span>2026</span>
                 </div>
             </div>
-            
             <nav>
-                <ul class="nav-links">
-                    <li><a href="#">Acerca de Nosotros</a></li>
-                    <li><a href="#">Nuestros Valores</a></li>
+                <ul>
+                    <li><a href="#">Acerca de nosotros</a></li>
+                    <li><a href="#">Nuestros valores</a></li>
                     <li><a href="#">Contacto</a></li>
                     <li><a href="#">Agenda una cita con nosotros</a></li>
                 </ul>
             </nav>
         </header>
-    </div>
 
-    <section class="hero">
-        <div class="container">
-            <div class="flex-row hero-content">
-                <div class="hero-image-col">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Modelo Casa Nest">
-                </div>
-
-                <div class="hero-text-col">
-                    <h1 class="hero-title">Convierte<br>tus ideas</h1>
-                    <p class="hero-subtitle">Agencia de Marketing</p>
-                </div>
+        <section class="hero">
+            <div class="hero-image">
+                <img src="tu-imagen-chica.png" alt="Casa Nest Hero" onerror="this.src='https://via.placeholder.com/600x800?text=IMAGEN+CHICA'">
             </div>
-        </div>
-    </section>
+            <div class="hero-text">
+                <h1>Convierte<br>tus ideas</h1>
+                <p>Agencia de Marketing</p>
+            </div>
+        </section>
+    </div>
 
     <section class="about-section">
         <div class="container">
-            <div class="flex-row about-headers">
-                <div class="section-label">Acerca De<br>Nosotros</div>
-                <div class="section-headline">Casa Nest la agencia de<br>marketing</div>
+            <div class="about-header">
+                <h2>Acerca de<br>nosotros</h2>
+                <div class="tagline">Casa Nest la agencia de<br>marketing</div>
             </div>
-
-            <div class="flex-row about-content">
-                <div class="laptop-col">
-                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1000&auto=format&fit=crop" alt="Laptop diseño">
+            <div class="about-grid">
+                <div class="about-img-box">
+                    <img src="tu-imagen-laptop.png" alt="Procesos Casa Nest" onerror="this.src='https://via.placeholder.com/500x350?text=IMAGEN+LAPTOP'">
                 </div>
-                <div class="text-col">
-                    <p class="about-desc">
-                        Casa Nest es una agencia de marketing fundada en 2026 con el proposito de darle un lugar a las ideas de los clientes y posicionar su narrativa
-                    </p>
+                <div class="about-content">
+                    <p>Casa Nest es una agencia de marketing fundada en 2026 con el propósito de darle un lugar a las ideas de los clientes y posicionar su narrativa</p>
                 </div>
             </div>
         </div>
@@ -380,34 +304,34 @@
 
     <section class="contact-section">
         <div class="container">
-            <div class="section-label" style="margin-bottom: 40px;">Contactanos</div>
-            
-            <div class="flex-row contact-content">
-                <div class="contact-info">
-                    <div class="contact-list">
-                        <p>Crea tu narrativa</p>
-                        <p>Posiciona tu marca</p>
-                        <p class="spacer">Cumple tus objetivos</p>
-                        
-                        <p>Email</p>
-                        <p class="spacer">casanestco@gmail.com</p>
-                        
-                        <p>Telefono 7472543199</p>
+            <h2 class="contact-title">Contáctanos</h2>
+            <div class="contact-grid">
+                <div class="contact-data">
+                    <div class="block">
+                        Crea tu narrativa<br>
+                        Posiciona tu marca<br>
+                        Cumple tus objetivos
+                    </div>
+                    <div class="block">
+                        Email<br>
+                        casanestco@gmail.com
+                    </div>
+                    <div class="block">
+                        Teléfono 7472543199
                     </div>
                 </div>
-
-                <div class="mug-col">
-                    <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=1000&auto=format&fit=crop" alt="Taza Casa Nest">
+                <div class="contact-image">
+                    <img src="tu-imagen-taza.png" alt="Merchandising" onerror="this.src='https://via.placeholder.com/300x300?text=IMAGEN+TAZA'">
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="logo">
-            <div class="logo-serif">Casa</div>
-            <div class="logo-sans">nest</div>
-            <div class="est-date">
+        <div class="logo-container">
+            <span class="logo-casa">Casa</span>
+            <span class="logo-nest">nest</span>
+            <div class="logo-details">
                 <span>EST.</span>
                 <span>2026</span>
             </div>
